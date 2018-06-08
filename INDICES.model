@@ -1,0 +1,134 @@
+{
+    "values": {
+        "inputs": {
+            "RASTERLAYER_B": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 122.0, 
+                            "x": 138.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "RASTERLAYER_B", 
+                            "showSublayersDialog": true, 
+                            "default": null, 
+                            "value": null, 
+                            "exported": null, 
+                            "hidden": false, 
+                            "optional": false, 
+                            "description": "Banda A"
+                        }, 
+                        "class": "processing.core.parameters.ParameterRaster"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }, 
+            "RASTERLAYER_A": {
+                "values": {
+                    "pos": {
+                        "values": {
+                            "y": 389.0, 
+                            "x": 138.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "param": {
+                        "values": {
+                            "isAdvanced": false, 
+                            "name": "RASTERLAYER_A", 
+                            "showSublayersDialog": true, 
+                            "default": null, 
+                            "value": null, 
+                            "exported": null, 
+                            "hidden": false, 
+                            "optional": false, 
+                            "description": "Banda B"
+                        }, 
+                        "class": "processing.core.parameters.ParameterRaster"
+                    }
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.ModelerParameter"
+            }
+        }, 
+        "helpContent": {
+            "ALG_DESC": "Os indices calculados servem de indicadore sens\u00edveis da quantidade e condi\u00e7\u00e3o de diversos asp\u00e9ctos, cujos valores variam no intervalo de -1 a 1.", 
+            "RASTERLAYER_B": "Inserir banda referente ao Primeiro elemento da equa\u00e7\u00e3o.", 
+            "RASTERLAYER_A": "Inserir banda referente ao Segundo elemento da equa\u00e7\u00e3o. ", 
+            "ALG_CREATOR": "Wesley K. Souto do Vale\nN\u00facleo de Estudos Socioambientais e Territoriais - NESAT", 
+            "OUTPUT_ALGGDALOGRRASTERCALCULATOR_1": "Raz\u00e3o entre a diferen\u00e7a das reflectividades das A e B, pela soma dessas mesmas refletividades. O formato de sa\u00edda \u00e9 o GeoTiff (.tif).", 
+            "ALG_VERSION": "0.1 beta", 
+            "ALG_HELP_CREATOR": "wesleysouto123@gmail.com"
+        }, 
+        "group": "Raster", 
+        "name": "Calcular \u00edndices de Diferen\u00e7a Normalizada", 
+        "algs": {
+            "GDALOGRRASTERCALCULATOR_1": {
+                "values": {
+                    "name": "GDALOGRRASTERCALCULATOR_1", 
+                    "paramsFolded": true, 
+                    "outputs": {
+                        "OUTPUT": {
+                            "values": {
+                                "description": "Indice_Calculado", 
+                                "pos": {
+                                    "values": {
+                                        "y": 308.0, 
+                                        "x": 545.0
+                                    }, 
+                                    "class": "point"
+                                }
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ModelerOutput"
+                        }
+                    }, 
+                    "pos": {
+                        "values": {
+                            "y": 263.0, 
+                            "x": 345.0
+                        }, 
+                        "class": "point"
+                    }, 
+                    "outputsFolded": true, 
+                    "dependencies": [], 
+                    "params": {
+                        "INPUT_F": null, 
+                        "BAND_F": "1", 
+                        "INPUT_D": null, 
+                        "INPUT_E": null, 
+                        "BAND_B": "1", 
+                        "BAND_C": "1", 
+                        "BAND_A": "1", 
+                        "RTYPE": 5, 
+                        "EXTRA": null, 
+                        "BAND_D": "1", 
+                        "NO_DATA": "-9999", 
+                        "BAND_E": "1", 
+                        "FORMULA": "((A-B.astype(numpy.float32))/(A+B.astype(numpy.float32)))", 
+                        "INPUT_A": {
+                            "values": {
+                                "name": "RASTERLAYER_B"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "INPUT_B": {
+                            "values": {
+                                "name": "RASTERLAYER_A"
+                            }, 
+                            "class": "processing.modeler.ModelerAlgorithm.ValueFromInput"
+                        }, 
+                        "INPUT_C": null
+                    }, 
+                    "active": true, 
+                    "consoleName": "gdalogr:rastercalculator", 
+                    "description": "Raster calculator"
+                }, 
+                "class": "processing.modeler.ModelerAlgorithm.Algorithm"
+            }
+        }
+    }, 
+    "class": "processing.modeler.ModelerAlgorithm.ModelerAlgorithm"
+}
